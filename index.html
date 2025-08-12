@@ -1,1 +1,347 @@
-this is the index
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        /* General Reset */
+        body, h1, p, footer, img, a {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html, body {
+            height: 100%;
+            /*overflow: hidden;*/ /* Prevent default body scrolling */
+        }
+
+        .typing {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white; /* Cursor effect */
+            width: 0;
+            animation: typing 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        /* Background Animation */
+        body {
+            background-image: url("knb1.jpg"); /* Default background */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Fix the background */
+            color: #333;
+            animation: changeBackground 16s infinite; /* Animation duration and loop */
+        }
+
+        @keyframes changeBackground {
+            0% {
+                background-image: url("knb1.jpg");
+            }
+
+            33% {
+                background-image: url("knb2.jpg"); /* Second background image */
+            }
+
+            66% {
+                background-image: url("knb3.jpg"); /* Third background image */
+            }
+
+            100% {
+                background-image: url("knb4.jpg");
+            }
+        }
+
+        /* Container */
+        .container {
+            border: 3px solid #D32F2F;
+            background: #fff;
+            background-color: #333;
+            max-width: 900px;
+            margin: 50px auto; /* Center the container */
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            width: 100%;
+            overflow-y: auto; /* Enable scrolling inside the container */
+            max-height: 80vh; /* Limit container height */
+        }
+
+        /* Profile Section */
+        #profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            border: 5px solid #D32F2F; /*#4CAF50*/
+            margin-bottom: 20px;
+        }
+
+        #profile h1 {
+            margin: 10px 0;
+            font-size: 2rem;
+            color: #333;
+        }
+
+        #profile p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .achievement, .work-experience, .referral-letter, .skill {
+            border: 5px solid #D32F2F;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+            margin-bottom: 20px; /* Added margin here for spacing */
+        }
+
+            .achievement:hover, .work-experience:hover, .referral-letter:hover, .skill:hover {
+                transform: translateY(-8px);
+                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            }
+
+            .achievement i, .work-experience i, .referral-letter i, .skill i {
+                font-size: 32px;
+                margin-bottom: 15px;
+                color: #4CAF50;
+            }
+
+        .achievement-title, .skill-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .achievement-description, .skill-description, .referral-letter-content {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .referral-letter-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .skills-list {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skill {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            #profile h1 {
+                font-size: 1.5rem;
+            }
+
+            #profile p {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Hover Labels for Sections */
+        .achievement:hover::after, .work-experience:hover::after, .education:hover::after, .hackathon:hover::after {
+            content: attr(data-hover);
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+        }
+        footer {
+            position: relative;
+            margin-top: 20px; /* Optional: Adjust spacing from the content */
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+            footer a {
+                color: #D32F2F
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <section id="profile">
+            <img src="pfp2.jpg" alt="Profile Picture">
+            <h1 style="color: white">Amir</h1>
+            <p style="color: white" class="typing">"The only one who can beat me is me"</p>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <div class="achievement education" data-hover="Education">
+                <i class="fas fa-graduation-cap" style="color: #D32F2F"></i>
+                <div class="achievement-title">Pursuing a Bachelor's in ICT</div>
+                <p>Freshman in SUSS with cGPA within second upper</p>
+                <div class="achievement-title">Diploma in Business Information Systems with Merit</div>
+                <p>Graduated top 10% from Replublic Polytechnic</p>
+            </div>
+        </section>
+
+        <!-- Work Experience Section -->
+        <section id="work-experience">
+            <div class="work-experience" data-hover="Work Experience">
+                <i class="fas fa-briefcase" style="color: #D32F2F"></i>
+                <div class="achievement-title">Software Engineer Intern</div>
+                <p>Interned for 5 months at JM Vistec</p>
+                <p>Worked on front & back end of various machine vision projects</p>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <div class="achievement" data-hover="Hackathon Placements">
+                <i class="fas fa-trophy" style="color: #D32F2F"></i>
+                <div class="achievement-title">Shopee Code League 2022</div>
+                <div class="achievement-description">Participation</div>
+                <div class="achievement-title">Google for Startups 2022</div>
+                <div class="achievement-description">Top 20 Teams</div>
+                <a href="https://github.com/syalabil/becarefall">Github Link</a>
+                <div class="achievement-title">NUS Hack and Roll 2025</div>
+                <div class="achievement-description">Participation</div>
+                <a href ="https://github.com/ZulfaqarHafez/HelpLah.AI">Github Link</a>
+                <div class="achievement-title">SMU Hack for Cities 2025</div>
+                <div class="achievement-description">Top 10 Teams</div>
+                <a href="https://github.com/guanghaokwa/AI-HFC-Recycle-Management-System">Github Link</a>
+            </div>
+        </section>
+
+        <!-- Referral Letters Section -->
+        <section id="referral-letters">
+            <div class="referral-letter">
+                <div class="referral-letter-title">Referral Letters</div>
+                <div class="referral-letter-content">
+                    <i class="fas fa-file-alt" style="color: #D32F2F"></i>
+                    <a href="school-referral.pdf" download>School</a>
+                </div>
+                <div class="referral-letter-content">
+                    <i class="fas fa-file-alt" style="color: #D32F2F"></i>
+                    <a href="workplace-referral.pdf" download>Workplace</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 style="color: #FFFFFF">Programming Skills</h2>
+            <div class="skills-list">
+                <div class="skill">
+                    <i class="fab fa-python" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">Python</div>
+                        <div class="skill-description">Developing efficient applications and scripts using Python.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-java" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">Java</div>
+                        <div class="skill-description">Building robust, object-oriented applications in Java.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">SQL</div>
+                        <div class="skill-description">Working with relational databases using SQL for data management.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fa fa-laptop" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">C++ & Qt Framework</div>
+                        <div class="skill-description">Building cross-platform desktop applications using C++ and the Qt framework.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-android" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">Android Studio (Java, XML)</div>
+                        <div class="skill-description">Developing Android applications with Java and XML using Android Studio.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-code" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">.NET (C#, HTML & CSHTML)</div>
+                        <div class="skill-description">Developing web applications with C#, HTML, and CSHTML using .NET framework.</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-linux" style="color: #D32F2F"></i>
+                    <div>
+                        <div class="skill-title">Linux</div>
+                        <div class="skill-description">Working with Linux for system administration and development tasks.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Connect with me:</p>
+        <p><a href="https://www.linkedin.com/in/amir-ashraf-45464119b/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <p>&copy; 2025 Amir | All Rights Reserved</p>
+    </footer>
+</body>
+
+</html>
